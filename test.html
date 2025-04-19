@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankit Singh - AI & ML Specialist</title>
+    <style>
+        :root {
+            --primary: #2d3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 100px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-text {
+            flex: 1;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .brand {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            margin-right: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-item a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+        }
+        
+        /* About */
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .expertise-list {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .expertise-item {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+        
+        /* Experience */
+        .experience {
+            background-color: var(--light);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--accent);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -17px;
+        }
+        
+        .right::after {
+            left: -17px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-date {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .timeline-role {
+            font-weight: 700;
+            margin: 10px 0 5px;
+            color: var(--primary);
+        }
+        
+        .timeline-company {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        /* Projects */
+        .projects {
+            background-color: white;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 180px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        /* Achievements */
+        .achievements {
+            background-color: var(--light);
+        }
+        
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .achievement-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .achievement-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .achievement-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Education */
+        .education {
+            background-color: white;
+        }
+        
+        .education-card {
+            background: var(--light);
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .degree {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .university {
+            font-weight: 600;
+            color: var(--secondary);
+            margin: 10px 0;
+        }
+        
+        .edu-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            color: var(--text-light);
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .cta-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #217dbb;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-img {
+                margin-bottom: 30px;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 15px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="header-text">
+                <h1 class="brand">ANKIT SINGH</h1>
+                <p class="tagline">AI & ML Specialist | Product Designer</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+916203762683">+91 6203762683</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:ad2128@srmist.edu.in">ad2128@srmist.edu.in</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Chennai, India</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/ankit-singh" target="_blank">linkedin.com/in/ankit-singh</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/ankit-singh" target="_blank">github.com/ankit-singh</a>
+                    </div>
+                </div>
+            </div>
+            <img src="/Users/prathamagarwalla/Desktop/untitled folder/PIC.jpeg" alt="Ankit Singh" class="profile-img">
+        </div>
+    </header>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a passionate AI & ML specialist with experience in product design, currently pursuing my B.Tech in Computer Science with a specialization in AI & ML. My professional journey includes working with industry giants like Intel, Tata Steel, and Tata Motors, where I've leveraged cutting-edge technologies to drive innovation and efficiency.</p>
+                    <p>With a strong technical foundation and problem-solving mindset, I excel at implementing AI solutions that deliver measurable business impact. My work spans across sentiment analysis, defect detection, predictive maintenance, and precision agriculture, demonstrating versatility in applying machine learning techniques to diverse industries.</p>
+                    <p>I'm dedicated to creating intelligent products that solve real-world problems and enhance user experiences through thoughtful design and advanced technology integration.</p>
+                </div>
+                <div class="expertise-list">
+                    <span class="expertise-item">Machine Learning</span>
+                    <span class="expertise-item">Deep Learning</span>
+                    <span class="expertise-item">Reinforcement Learning</span>
+                    <span class="expertise-item">Computer Vision</span>
+                    <span class="expertise-item">Data Analysis</span>
+                    <span class="expertise-item">Data Visualization</span>
+                    <span class="expertise-item">Product Design</span>
+                    <span class="expertise-item">NLP</span>
+                    <span class="expertise-item">AI Integration</span>
+                    <span class="expertise-item">Quality Assurance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <p class="timeline-date">May 2024 - Present</p>
+                        <h3 class="timeline-role">GenAI Intern</h3>
+                        <p class="timeline-company">Intel Corporation, Bengaluru</p>
+                        <p>Revolutionized customer sentiment analysis campaigns, increasing Google review ratings by 15%, Twitter engagement by 20%, and email response rates by 25% through advanced NLP strategies.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <p class="timeline-date">February 2024 - Present</p>
+                        <h3 class="timeline-role">Sanchar Mitra</h3>
+                        <p class="timeline-company">Dept. of Telecom, Govt. of India, Chennai</p>
+                        <p>Strategically orchestrated communication enhancements within the 'Sanchar Mitra' Scheme, driving a 30% surge in citizen engagement metrics and precipitating a substantial uptick in the utilization of Department of Telecommunications' services.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <p class="timeline-date">December 2023 - February 2024</p>
+                        <h3 class="timeline-role">Project Intern</h3>
+                        <p class="timeline-company">Tata Steel, Jamshedpur</p>
+                        <p>Led AI-driven quality assurance integration at Tata Steel, slashing defect rates by 20%, elevating manufacturing standards, and boosting operational efficiency.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <p class="timeline-date">May 2023 - October 2023</p>
+                        <h3 class="timeline-role">Research Intern</h3>
+                        <p class="timeline-company">Indian Institute of Technology, Patna</p>
+                        <p>Directed pioneering research refining weed segmentation, achieving a 25% precision increase in agriculture and fostering cross-departmental collaboration for impactful solutions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <p class="timeline-date">April 2023 - July 2023</p>
+                        <h3 class="timeline-role">Technical Intern</h3>
+                        <p class="timeline-company">Tata Motors, Pune</p>
+                        <p>Collaborated to integrate machine learning for downtime prediction, driving a 15.23% reduction in maintenance costs and enhancing operational efficiency across multiple departments at Tata Motors Limited.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sentiment Surge: AI-Powered Customer Insight Enhancement</h3>
+                        <p>Conducting sentiment analysis campaigns across Google reviews, Twitter, and emails, utilizing advanced natural language processing techniques to uncover actionable business insights and elevate customer satisfaction metrics.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Intelligent Quality Assurance System for Steel</h3>
+                        <p>Devised innovative AI-driven quality assurance system with 95.29% accuracy, employing SVMs, Random Forest, and GBM for defect detection, ensuring superior manufacturing standards at Tata Steel Limited.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Early Weed Segmentation in Motion-Blurred UAV Imagery</h3>
+                        <p>Applied advanced fusion techniques—ESRGAN and Deep Attention Network—to achieve a standout 97.24% accuracy in early weed segmentation from motion-blurred Sorghum UAV imagery.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Advanced Downtime Prediction for Tata Motors Machineries</h3>
+                        <p>Partnered with industry experts to implement precise machine learning models for advanced downtime prediction in Tata Motors machinery, optimizing maintenance schedules and increasing operational efficiency by 32%.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements</h2>
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="achievement-title">Philips Ideathon Champion</h3>
+                    <p>Achieved first place among 220+ teams in the Ideathon competition, showcasing innovative prowess and exceptional teamwork.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="achievement-title">SRM Merit Scholarship</h3>
+                    <p>Eclipsed 1 lakh+ peers by securing an impressive AIR 471 in SRMJEEE, earning the prestigious SRM Merit Scholarship with a complete tuition fee waiver.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="achievement-title">Smart India Hackathon</h3>
+                    <p>Obtained top 10 placement in Smart India Hackathon, India's premier government-organized hackathon, showcasing innovative solutions and expertise.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="achievement-title">Dark Buster Pattern Hackathon</h3>
+                    <p>Secured 4th position out of 250,000 students from 140+ colleges at Dark Patterns Buster Hackathon (DPBH-2023).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section class="education" id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card">
+                <h3 class="degree">B. Tech in Computer Science</h3>
+                <p class="university">SRM Institute of Science and Technology, Kattankulathur</p>
+                <p>Specialization in AI & ML</p>
+                <div class="edu-details">
+                    <span>2021 - 2025</span>
+                    <span>CGPA: 8.70</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title">Ready to Innovate Together?</h2>
+            <p class="cta-text">Looking for a skilled AI & ML specialist with product design expertise? Let's collaborate to create intelligent solutions that drive real business impact.</p>
+            <a href="mailto:ad2128@srmist.edu.in" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/ankit-singh" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/ankit-singh" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:ad2128@srmist.edu.in" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p>&copy; 2025 Ankit Singh. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
